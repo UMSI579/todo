@@ -1,5 +1,6 @@
 import TodoItem from "./components/TodoItem";
 import InputGroup from "./components/InputGroup";
+import {useState} from "react";
 
 function TodoList () {
     const defaultTodoItems = [
@@ -14,12 +15,14 @@ function TodoList () {
         }
     ];
 
+    const [todoItems, setTodoItems] = useState(defaultTodoItems);
+
     return (
         <main className="container">
         <h1 className="row">Things to do (579 In Class)</h1>
 
         <ul className="row">
-            {defaultTodoItems.map((item) =>
+            {todoItems.map((item) =>
                 <TodoItem task={item.task} timestamp={item.timestamp} created={item.created} />
             )}
         </ul>

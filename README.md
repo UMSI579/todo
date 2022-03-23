@@ -13,3 +13,6 @@
 - Loop through the array to add a `<TodoItem />` for each todo.
 - In later steps, adding a todo will mean adding the data to this array.
 - Add a "created" millisecond timestamp on these. This will be used to mark items done.
+
+## Step 5: Turn the todo item array into state.
+- Once it becomes state, any time the todo item array changes, any component that uses that array will be re-rendered.
