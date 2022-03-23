@@ -16,3 +16,5 @@
 
 ## Step 5: Turn the todo item array into state.
 - Once it becomes state, any time the todo item array changes, any component that uses that array will be re-rendered.
+
+## Step 6: Just add some line breaks and indents in preparation to add the form handlers.
