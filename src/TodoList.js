@@ -1,4 +1,5 @@
 import TodoItem from "./components/TodoItem";
+import InputGroup from "./components/InputGroup";
 
 function TodoList () {
     return (
@@ -10,12 +11,7 @@ function TodoList () {
             <TodoItem task='Drop SI 579' timestamp="1648023475" />
         </ul>
         <section>
-            <div className="input-group">
-                <input className="form-control w-25" type="text" placeholder="Task Description" aria-label="Task Description"/>
-                <input className="form-control"  type="date" value="2021-10-01" aria-label="Due Date"/>
-                <input className="form-control" type="time"  value="14:30" aria-label="Due Time"/>
-                <button className="btn btn-primary" aria-label="Add Task">Add Task</button>
-            </div>
+            <InputGroup />
         </section>
     </main>);
 }
