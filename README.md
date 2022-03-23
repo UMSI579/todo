@@ -25,3 +25,7 @@
 - pass down `setTodoItems` from `TodoList` to `InputGroup` so the input group can update the state of the parent `TodoList`
 - add an onClick to the submit `<button>` with a callback that adds an item.
 - Bring in a reworked version of `dateAndTimeToTimestamp` from PS4 that is provided via a `utils.js` file.
+
+## Step 9: Improve the form
+- Clear the inputs on submit
+- Make it submit if you hit enter while *any* input is focus
