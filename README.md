@@ -29,3 +29,8 @@
 ## Step 9: Improve the form
 - Clear the inputs on submit
 - Make it submit if you hit enter while *any* input is focus
+
+## Step 10: Set tasks to 'done'
+- Add the timestamp as a key for each `TodoItem`, every item in a list should get a `key`.
+- In TodoList, create a `removeTodoItem` function that removes an item if the 'created' timestamp matches.
+- Pass `removeTodoItem` as a prop to each `TodoItem` that uses its 'created' as the function arg. This function will be the 'done' buttons `onClick` callback
