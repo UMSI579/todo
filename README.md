@@ -37,3 +37,6 @@
 
 ## Step 11: Integrate Local Storage
 - Your item list will survive refreshes and even browser restarts.
+
+## Step 12: Format the dates better
+- Realized it was necessary to keep track of date/time values AND valueAsNumber

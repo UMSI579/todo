@@ -6,23 +6,27 @@ const InputGroup = (props) => {
     const [taskDescription, setTaskDescription] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [dueTime, setDueTime] = useState('');
+    const [dueDateAsNumber, setDueDateAsNumber] = useState('');
+    const [dueTimeAsNumber, setDueTimeAsNumber] = useState('');
 
     const addTask = () => {
-        setTodoItems((currentTodoItems) => {
-            const updatedTodoItems =  [
-                {
-                    task: taskDescription,
-                    created: Date.now(),
-                    timestamp: dateAndTimeToTimestamp(dueDate, dueTime),
-                },
-                ...currentTodoItems,
-            ];
-            localStorage.setItem('my-todo-items', JSON.stringify(updatedTodoItems));
-            return updatedTodoItems;
-        });
-        setTaskDescription('');
-        setDueDate('');
-        setDueTime('');
+        if (taskDescription) {
+            setTodoItems((currentTodoItems) => {
+                const updatedTodoItems =  [
+                    {
+                        task: taskDescription,
+                        created: Date.now(),
+                        timestamp: dateAndTimeToTimestamp(dueDateAsNumber, dueTimeAsNumber),
+                    },
+                    ...currentTodoItems,
+                ];
+                localStorage.setItem('my-todo-items', JSON.stringify(updatedTodoItems));
+                return updatedTodoItems;
+            });
+            setTaskDescription('');
+            setDueDate('');
+            setDueTime('');
+        }
     }
 
     const keyDownHandler = (e) => {
@@ -30,6 +34,11 @@ const InputGroup = (props) => {
             addTask()
         }
     }
+
+    const dateTimeUpdater = (e, setRegular, setNumber) => {
+        setRegular(e.target.value);
+        setNumber(e.target.valueAsNumber);
+    };
 
     return(
         <div className="input-group">
@@ -44,7 +53,7 @@ const InputGroup = (props) => {
             />
             <input
                 value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}
+                onChange={(e) => dateTimeUpdater(e, setDueDate, setDueDateAsNumber)}
                 className="form-control"
                 type="date"
                 aria-label="Due Date"
@@ -52,7 +61,7 @@ const InputGroup = (props) => {
             />
             <input
                 value={dueTime}
-                onChange={(e) => setDueTime(e.target.value)}
+                onChange={(e) => dateTimeUpdater(e, setDueTime, setDueTimeAsNumber)}
                 className="form-control"
                 type="time"
                 aria-label="Due Time"
