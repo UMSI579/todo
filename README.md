@@ -34,3 +34,6 @@
 - Add the timestamp as a key for each `TodoItem`, every item in a list should get a `key`.
 - In TodoList, create a `removeTodoItem` function that removes an item if the 'created' timestamp matches.
 - Pass `removeTodoItem` as a prop to each `TodoItem` that uses its 'created' as the function arg. This function will be the 'done' buttons `onClick` callback
+
+## Step 11: Integrate Local Storage
+- Your item list will survive refreshes and even browser restarts.

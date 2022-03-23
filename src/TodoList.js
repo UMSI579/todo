@@ -3,7 +3,7 @@ import InputGroup from "./components/InputGroup";
 import {useState} from "react";
 
 function TodoList () {
-    const defaultTodoItems = [
+    let defaultTodoItems = [
         {
             task: 'laundry',
             created: 1647999964830,
@@ -15,6 +15,12 @@ function TodoList () {
         }
     ];
 
+    const storedTodoItems = localStorage.getItem('my-todo-items');
+
+    if (storedTodoItems) {
+        defaultTodoItems = JSON.parse(storedTodoItems);
+    }
+
     const [todoItems, setTodoItems] = useState(defaultTodoItems);
 
     const removeTodoItem = (created) => {
@@ -23,6 +29,7 @@ function TodoList () {
             const withItemRemoved = previousTodoItems.filter((item) => {
                 return item.created !== created
             });
+            localStorage.setItem('my-todo-items', JSON.stringify(withItemRemoved));
             return withItemRemoved;
         });
     }

@@ -9,7 +9,7 @@ const InputGroup = (props) => {
 
     const addTask = () => {
         setTodoItems((currentTodoItems) => {
-            return [
+            const updatedTodoItems =  [
                 {
                     task: taskDescription,
                     created: Date.now(),
@@ -17,6 +17,8 @@ const InputGroup = (props) => {
                 },
                 ...currentTodoItems,
             ];
+            localStorage.setItem('my-todo-items', JSON.stringify(updatedTodoItems));
+            return updatedTodoItems;
         });
         setTaskDescription('');
         setDueDate('');
