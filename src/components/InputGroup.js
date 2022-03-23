@@ -8,19 +8,23 @@ const InputGroup = (props) => {
     return(
         <div className="input-group">
             <input
+                value={taskDescription}
+                onChange={(e) => setTaskDescription(e.target.value)}
                 className="form-control w-25"
                 type="text"
                 placeholder="Task Description"
                 aria-label="Task Description" />
             <input
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
                 className="form-control"
                 type="date"
-                value="2021-10-01"
                 aria-label="Due Date"/>
             <input
+                value={dueTime}
+                onChange={(e) => setDueTime(e.target.value)}
                 className="form-control"
                 type="time"
-                value="14:30"
                 aria-label="Due Time"/>
             <button
                 className="btn btn-primary"

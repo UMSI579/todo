@@ -18,3 +18,5 @@
 - Once it becomes state, any time the todo item array changes, any component that uses that array will be re-rendered.
 
 ## Step 6: Just add some line breaks and indents in preparation to add the form handlers.
+
+## Step 7: Create state for every input in the "add task" form
