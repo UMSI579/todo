@@ -27,7 +27,7 @@ function TodoList () {
             )}
         </ul>
         <section>
-            <InputGroup />
+            <InputGroup setTodoItems={setTodoItems} />
         </section>
     </main>);
 }

@@ -1,9 +1,24 @@
 import {useState} from "react";
+import { dateAndTimeToTimestamp } from '../utils'
 
 const InputGroup = (props) => {
+    const { setTodoItems } = props;
     const [taskDescription, setTaskDescription] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [dueTime, setDueTime] = useState('');
+
+    const addTask = () => {
+        setTodoItems((currentTodoItems) => {
+            return [
+                {
+                    task: taskDescription,
+                    created: Date.now(),
+                    timestamp: dateAndTimeToTimestamp(dueDate, dueTime),
+                },
+                ...currentTodoItems,
+            ];
+        });
+    }
 
     return(
         <div className="input-group">
@@ -27,6 +42,7 @@ const InputGroup = (props) => {
                 type="time"
                 aria-label="Due Time"/>
             <button
+                onClick={addTask}
                 className="btn btn-primary"
                 aria-label="Add Task">
                 Add Task

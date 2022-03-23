@@ -20,3 +20,8 @@
 ## Step 6: Just add some line breaks and indents in preparation to add the form handlers.
 
 ## Step 7: Create state for every input in the "add task" form
+
+## Step 8: Get the form to add tasks
+- pass down `setTodoItems` from `TodoList` to `InputGroup` so the input group can update the state of the parent `TodoList`
+- add an onClick to the submit `<button>` with a callback that adds an item.
+- Bring in a reworked version of `dateAndTimeToTimestamp` from PS4 that is provided via a `utils.js` file.
