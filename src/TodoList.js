@@ -1,9 +1,14 @@
+import TodoItem from "./components/TodoItem";
+
 function TodoList () {
     return (
         <main className="container">
         <h1 className="row">Things to do (579 In Class)</h1>
 
-        <ul className="row"></ul>
+        <ul className="row">
+            <TodoItem task='laundry' />
+            <TodoItem task='Drop SI 579' timestamp="1648023475" />
+        </ul>
         <section>
             <div className="input-group">
                 <input className="form-control w-25" type="text" placeholder="Task Description" aria-label="Task Description"/>
