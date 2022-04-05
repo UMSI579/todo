@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { dateAndTimeToTimestamp } from '../utils'
+import bootstrapCss from '../css/bootstrap.module.css'
 
 const InputGroup = (props) => {
     const { setTodoItems } = props;
@@ -8,7 +9,7 @@ const InputGroup = (props) => {
     const [dueTime, setDueTime] = useState('');
     const [dueDateAsNumber, setDueDateAsNumber] = useState('');
     const [dueTimeAsNumber, setDueTimeAsNumber] = useState('');
-
+    console.log('bretsr', bootstrapCss);
     const addTask = () => {
         if (taskDescription) {
             setTodoItems((currentTodoItems) => {
@@ -41,11 +42,11 @@ const InputGroup = (props) => {
     };
 
     return(
-        <div className="input-group">
+        <div className={bootstrapCss['input-group']}>
             <input
                 value={taskDescription}
                 onChange={(e) => setTaskDescription(e.target.value)}
-                className="form-control w-25"
+                className={`${bootstrapCss['form-control']} ${bootstrapCss['w-25']}`}
                 type="text"
                 placeholder="Task Description"
                 aria-label="Task Description"
@@ -54,7 +55,7 @@ const InputGroup = (props) => {
             <input
                 value={dueDate}
                 onChange={(e) => dateTimeUpdater(e, setDueDate, setDueDateAsNumber)}
-                className="form-control"
+                className={bootstrapCss['form-control']}
                 type="date"
                 aria-label="Due Date"
                 onKeyDown={keyDownHandler}
@@ -62,14 +63,14 @@ const InputGroup = (props) => {
             <input
                 value={dueTime}
                 onChange={(e) => dateTimeUpdater(e, setDueTime, setDueTimeAsNumber)}
-                className="form-control"
+                className={bootstrapCss['form-control']}
                 type="time"
                 aria-label="Due Time"
                 onKeyDown={keyDownHandler}
             />
             <button
                 onClick={addTask}
-                className="btn btn-primary"
+                className={`${bootstrapCss['btn']} ${bootstrapCss['btn-primary']}`}
                 aria-label="Add Task">
                 Add Task
             </button>

@@ -40,3 +40,8 @@
 
 ## Step 12: Format the dates better
 - Realized it was necessary to keep track of date/time values AND valueAsNumber
+
+## Step 13: Refactor CSS to use CSS modules
+- CSS modules require the file to end in .module.css, so I moved the CDN bootstrap CSS to local
+- With CSS modules, the CSS is copied to an object, then each property of the object corresponds to a class in the CSS.
+- See [Creating a CSS modules stylesheet](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)

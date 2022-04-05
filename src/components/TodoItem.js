@@ -1,3 +1,5 @@
+import bootstrapCss from '../css/bootstrap.module.css'
+
 const TodoItem = (props) => {
   const { task, timestamp, remove } = props;
 
@@ -12,9 +14,9 @@ const TodoItem = (props) => {
   return (
       <li>
           {task}
-          <span className="due">{renderDateTime()}</span>
+          <span className={bootstrapCss.due}>{renderDateTime()}</span>
           <button
-              className="btn btn-sm btn-outline-danger done"
+              className={`${bootstrapCss.btn} ${bootstrapCss['btn-sm']} ${bootstrapCss['btn-outline-danger']} ${bootstrapCss.done}`}
               type="button"
               onClick={remove}>
               Done
