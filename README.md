@@ -45,3 +45,6 @@
 - CSS modules require the file to end in .module.css, so I moved the CDN bootstrap CSS to local
 - With CSS modules, the CSS is copied to an object, then each property of the object corresponds to a class in the CSS.
 - See [Creating a CSS modules stylesheet](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
+
+# Step 14: Destructure props on their way in
+- You can save space and improve readability by destructuring props in the component args.

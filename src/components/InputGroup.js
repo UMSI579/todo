@@ -2,8 +2,7 @@ import {useState} from "react";
 import { dateAndTimeToTimestamp } from '../utils'
 import bootstrapCss from '../css/bootstrap.module.css'
 
-const InputGroup = (props) => {
-    const { setTodoItems } = props;
+const InputGroup = ({setTodoItems}) => {
     const [taskDescription, setTaskDescription] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [dueTime, setDueTime] = useState('');
