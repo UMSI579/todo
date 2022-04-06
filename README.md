@@ -63,3 +63,5 @@
 - We can cancel each filter request until there hasn't been one for 500m.
 
 ## Step 18: Pretend I'm not here, I'm just one typo correction and I don't want to mess with the branch history
+
+## Step 19: Just install react-router. That is a big enough diff. We will do stuff with it in later steps
