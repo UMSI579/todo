@@ -17,7 +17,7 @@ const FilterResults = ({setFilterBy}) => {
     return () => {
       clearTimeout(timeoutId);
     }
-  }, [inputValue]);
+  }, [inputValue, setFilterBy])
 
   const clearButton = () => {
     if (inputValue.length === 0) {
