@@ -61,3 +61,5 @@
 ## Step 17: Throttle filter requests with the useEffect cleanup function.
 - Filtering on EVERY change event can be resource draining and it is unnecessary. People type fast!
 - We can cancel each filter request until there hasn't been one for 500m.
+
+## Step 18: Pretend I'm not here, I'm just one typo correction and I don't want to mess with the branch history
