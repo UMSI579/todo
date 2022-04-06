@@ -53,3 +53,7 @@
 - It won't actually filter anything yet.
 - We'll do some CSS cleanup, too.
 - Add some additional default items so it is easier to test filtering, and we will move those to a separate file to reduce chaos.
+
+## Step 16: Enable filtering with useEffect
+- Filtering will now *work*, but in a way that could have performance issues in a more complex application, especially if the data is fetched remotely.
+- The console.log shows a filter happening on each keystroke.

@@ -17,6 +17,7 @@ function TodoList () {
     }
 
     const [todoItems, setTodoItems] = useState(defaultTodoItems);
+    const [filterBy, setFilterby] = useState(defaultTodoItems);
 
     const removeTodoItem = (created) => {
         setTodoItems((previousTodoItems) => {
@@ -29,22 +30,37 @@ function TodoList () {
         });
     }
 
+    const displayTodoListItems = (items) => {
+        return items.map((item) =>
+          <TodoItem
+            task={item.task}
+            timestamp={item.timestamp}
+            created={item.created}
+            key={item.created}
+            remove={() => removeTodoItem(item.created)}
+          />)
+    }
+
+    const displayFilteredTodoListItems = (items) => {
+        const filteredItems = items.filter((item) => item.task.includes(filterBy));
+        console.log('filter request for', filterBy)
+        const filteredComponents =  displayTodoListItems(filteredItems);
+        if (filteredComponents.length === 0) {
+            return `no results for ${filterBy}`
+        }
+        return filteredComponents;
+    }
+
     return (
         <main className={bootstrapCss.container}>
         <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
         <div className={bootstrapCss.row}>
-            <FilterResults />
+            <FilterResults
+              setFilterBy={setFilterby}
+            />
         </div>
         <ul className={bootstrapCss.row}>
-            {todoItems.map((item) =>
-                <TodoItem
-                    task={item.task}
-                    timestamp={item.timestamp}
-                    created={item.created}
-                    key={item.created}
-                    remove={() => removeTodoItem(item.created)}
-                />
-            )}
+            {filterBy.length === 0 ? displayTodoListItems(todoItems) : displayFilteredTodoListItems(todoItems)}
         </ul>
         <section>
             <InputGroup setTodoItems={setTodoItems} />

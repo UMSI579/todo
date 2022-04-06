@@ -1,9 +1,13 @@
 import bootstrapCss from '../css/bootstrap.module.css'
 import customCss from '../css/custom.module.css';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 const FilterResults = ({setFilterBy}) => {
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    setFilterBy(inputValue);
+  }, [inputValue])
 
   const clearButton = () => {
     if (inputValue.length === 0) {
