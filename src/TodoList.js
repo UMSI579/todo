@@ -1,20 +1,15 @@
 import TodoItem from "./components/TodoItem";
 import InputGroup from "./components/InputGroup";
 import {useState} from "react";
+import bootstrapCss from './css/bootstrap.module.css'
+import FilterResults from "./components/FilterResults";
+import {defaultTasks} from "./fixtures/defaultTasks";
 
 function TodoList () {
-    let defaultTodoItems = [
-        {
-            task: 'laundry',
-            created: 1647999964830,
-        },
-        {
-            task: 'Drop SI 579',
-            timestamp: 1648023475,
-            created: 1647999978632,
-        }
-    ];
+    let defaultTodoItems = defaultTasks;
 
+    // If localStorage is preventing the addition of the expanded defaultTodoItems
+    // clear it with `localStorage.clear('my-todo-items')`
     const storedTodoItems = localStorage.getItem('my-todo-items');
 
     if (storedTodoItems) {
@@ -35,10 +30,12 @@ function TodoList () {
     }
 
     return (
-        <main className="container">
-        <h1 className="row">Things to do (579 In Class)</h1>
-
-        <ul className="row">
+        <main className={bootstrapCss.container}>
+        <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
+        <div className={bootstrapCss.row}>
+            <FilterResults />
+        </div>
+        <ul className={bootstrapCss.row}>
             {todoItems.map((item) =>
                 <TodoItem
                     task={item.task}

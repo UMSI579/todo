@@ -8,7 +8,6 @@ const InputGroup = ({setTodoItems}) => {
     const [dueTime, setDueTime] = useState('');
     const [dueDateAsNumber, setDueDateAsNumber] = useState('');
     const [dueTimeAsNumber, setDueTimeAsNumber] = useState('');
-    console.log('bretsr', bootstrapCss);
     const addTask = () => {
         if (taskDescription) {
             setTodoItems((currentTodoItems) => {

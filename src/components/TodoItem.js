@@ -1,4 +1,5 @@
 import bootstrapCss from '../css/bootstrap.module.css'
+import customCss from '../css/custom.module.css';
 
 const TodoItem = ({ task, timestamp, remove }) => {
   const renderDateTime = () => {
@@ -12,7 +13,7 @@ const TodoItem = ({ task, timestamp, remove }) => {
   return (
       <li>
           {task}
-          <span className={bootstrapCss.due}>{renderDateTime()}</span>
+          <span className={customCss.due}>{renderDateTime()}</span>
           <button
               className={`${bootstrapCss.btn} ${bootstrapCss['btn-sm']} ${bootstrapCss['btn-outline-danger']} ${bootstrapCss.done}`}
               type="button"

@@ -46,5 +46,10 @@
 - With CSS modules, the CSS is copied to an object, then each property of the object corresponds to a class in the CSS.
 - See [Creating a CSS modules stylesheet](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
 
-# Step 14: Destructure props on their way in
+## Step 14: Destructure props on their way in
 - You can save space and improve readability by destructuring props in the component args.
+
+## Step 15: Create a "filter todos" component
+- It won't actually filter anything yet.
+- We'll do some CSS cleanup, too.
+- Add some additional default items so it is easier to test filtering, and we will move those to a separate file to reduce chaos.
