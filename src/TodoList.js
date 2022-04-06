@@ -6,10 +6,11 @@ import FilterResults from "./components/FilterResults";
 import {defaultTasks} from "./fixtures/defaultTasks";
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route,
     Link
 } from "react-router-dom";
+import CompletedTasks from "./components/CompletedTasks";
 
 function TodoList () {
     let defaultTodoItems = defaultTasks;
@@ -28,12 +29,36 @@ function TodoList () {
     return (
         <main className={bootstrapCss.container}>
             <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
-            <DefaultTodoItems
-              setTodoItems={setTodoItems}
-              todoItems={todoItems}
-              filterBy={filterBy}
-              setFilterBy={setFilterBy}
-            />
+            <Router>
+                <div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/completed">Completed</Link>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+                    <Routes>
+                        <Route path="/completed" element={<CompletedTasks />} />
+                        <Route path="/" element={<DefaultTodoItems
+                          setTodoItems={setTodoItems}
+                          todoItems={todoItems}
+                          filterBy={filterBy}
+                          setFilterBy={setFilterBy}
+                        />}>
+
+                        </Route>
+                    </Routes>
+                </div>
+            </Router>
+
         </main>)
 }
 
