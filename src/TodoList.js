@@ -4,6 +4,12 @@ import {useState} from "react";
 import bootstrapCss from './css/bootstrap.module.css'
 import FilterResults from "./components/FilterResults";
 import {defaultTasks} from "./fixtures/defaultTasks";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function TodoList () {
     let defaultTodoItems = defaultTasks;
@@ -18,6 +24,20 @@ function TodoList () {
 
     const [todoItems, setTodoItems] = useState(defaultTodoItems);
     const [filterBy, setFilterBy] = useState('');
+
+    return (
+        <main className={bootstrapCss.container}>
+            <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
+            <DefaultTodoItems
+              setTodoItems={setTodoItems}
+              todoItems={todoItems}
+              filterBy={filterBy}
+              setFilterBy={setFilterBy}
+            />
+        </main>)
+}
+
+function DefaultTodoItems({setFilterBy, todoItems, setTodoItems, filterBy}) {
 
     const removeTodoItem = (created) => {
         setTodoItems((previousTodoItems) => {
@@ -43,7 +63,6 @@ function TodoList () {
 
     const displayFilteredTodoListItems = (items) => {
         const filteredItems = items.filter((item) => item.task.includes(filterBy));
-        console.log('filter request for', filterBy)
         const filteredComponents =  displayTodoListItems(filteredItems);
         if (filteredComponents.length === 0) {
             return `no results for ${filterBy}`
@@ -52,8 +71,7 @@ function TodoList () {
     }
 
     return (
-        <main className={bootstrapCss.container}>
-        <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
+      <>
         <div className={bootstrapCss.row}>
             <FilterResults
               setFilterBy={setFilterBy}
@@ -65,7 +83,7 @@ function TodoList () {
         <section>
             <InputGroup setTodoItems={setTodoItems} />
         </section>
-    </main>);
+      </>);
 }
 
 export default TodoList;
