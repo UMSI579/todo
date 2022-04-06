@@ -17,7 +17,7 @@ function TodoList () {
     }
 
     const [todoItems, setTodoItems] = useState(defaultTodoItems);
-    const [filterBy, setFilterby] = useState('');
+    const [filterBy, setFilterBy] = useState('');
 
     const removeTodoItem = (created) => {
         setTodoItems((previousTodoItems) => {
@@ -56,7 +56,7 @@ function TodoList () {
         <h1 className={bootstrapCss.row}>Things to do (579 In Class)</h1>
         <div className={bootstrapCss.row}>
             <FilterResults
-              setFilterBy={setFilterby}
+              setFilterBy={setFilterBy}
             />
         </div>
         <ul className={bootstrapCss.row}>
