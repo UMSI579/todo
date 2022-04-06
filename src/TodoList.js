@@ -17,7 +17,7 @@ function TodoList () {
     }
 
     const [todoItems, setTodoItems] = useState(defaultTodoItems);
-    const [filterBy, setFilterby] = useState(defaultTodoItems);
+    const [filterBy, setFilterby] = useState('');
 
     const removeTodoItem = (created) => {
         setTodoItems((previousTodoItems) => {
