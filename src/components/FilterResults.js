@@ -6,8 +6,18 @@ const FilterResults = ({setFilterBy}) => {
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    setFilterBy(inputValue);
-  }, [inputValue])
+    const timeoutId = setTimeout(() => {
+      setFilterBy(inputValue);
+    }, 500);
+
+    // useEffect can return a "cleanup function". The cleanup
+    // runs anytime this useEffect is called again.
+    // This allows us to prevent the setFilterBy 👆 call until this useEffect has
+    // not been called for 500ms.
+    return () => {
+      clearTimeout(timeoutId);
+    }
+  }, [inputValue]);
 
   const clearButton = () => {
     if (inputValue.length === 0) {
