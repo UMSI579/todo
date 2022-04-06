@@ -56,7 +56,7 @@
 
 ## Step 16: Enable filtering with useEffect
 - Filtering will now *work*, but in a way that could have performance issues in a more complex application, especially if the data is fetched remotely.
-- The console.log shows a filter happening on each keystroke.
+  - The console.log shows a filter happening on each keystroke.
 
 ## Step 17: Throttle filter requests with the useEffect cleanup function.
 - Filtering on EVERY change event can be resource draining and it is unnecessary. People type fast!
