@@ -7,7 +7,7 @@ const FilterResults = ({setFilterBy}) => {
 
   useEffect(() => {
     setFilterBy(inputValue);
-  }, [inputValue])
+  }, [inputValue, setFilterBy])
 
   const clearButton = () => {
     if (inputValue.length === 0) {
